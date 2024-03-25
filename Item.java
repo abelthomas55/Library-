@@ -42,15 +42,5 @@ public void setDate(String Invdate) throws Exception {
     }
 
 
-    protected Item(){
-        this.Id = 0;
-        this.Title = "Unkown";
-        this.InvDate = "yyyy,mm,dd";
-    }
-
-    protected Item(int ID, String Title, Date Invdate ) throws Exception{
-
-
-    }
 
 }
