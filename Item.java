@@ -7,40 +7,51 @@ public class Item {
 
     private Integer Id;
 
-    private String Title;
+    private String title;
 
     private LocalDate Invdate;
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
+
     protected Item(){
         this.Id = 0;
-        this.Title = "Unkown";
+        this.title = "Unkown";
         this.Invdate = LocalDate.parse("MM-dd-yyyy");
     }
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
+    public void setDate(String Invdate) throws Exception {
+        try {
+            this.Invdate = LocalDate.parse(Invdate, Item.formatter);
 
+        } catch(Exception e){
+            throw new Exception("Invalid date! Must be MM-DD-YYYY");
+        }
+    }
     public String getDateString(){
         return this.Invdate.format(Item.formatter);
     }
-
-public void setDate(String Invdate) throws Exception {
-    try {
-        this.Invdate = LocalDate.parse(Invdate, Item.formatter);
-
-    } catch(Exception e){
-        throw new Exception("Invalid date! Must be MM-DD-YYYY");
-    }
-}
 
     protected int setID(){
         this.Id = counter++;
         return this.Id;
     }
 
-    protected String Title(){
-        return Title;
+    public Integer getId(){
+        return Id;
     }
 
+
+    public void setTitle(String title) throws Exception {
+        title = title.trim();
+        if(title.isEmpty())
+            throw new Exception("Title cannot be blank.");
+
+        this.title = title;
+    }
+
+    public String getTitle(){
+        return this.title;
+    }
 
 
 }
