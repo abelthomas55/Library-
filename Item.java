@@ -1,39 +1,33 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Item {
-    private static int lastId = 0;
-    private  LocalDate Invdate;
+    private static Integer counter = 0;
+
     private Integer Id;
 
     private String title;
 
-
+    private LocalDate invDate;
 
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
-    protected Item(){
-        this.Id = 0;
-        this.title = "Unkown";
-        this.Invdate = LocalDate.parse("MM-dd-yyyy");
+    protected Item(String title, String invDate) throws Exception {
+        this.Id = Item.counter++;
+        setTitle(title);
+        setDate(String.valueOf(invDate));
     }
 
-    public void setDate(String Invdate) throws Exception {
+    public void setDate(String invDate) throws Exception {
         try {
-            this.Invdate = LocalDate.parse(Invdate, Item.formatter);
+            this.invDate = LocalDate.parse(invDate, Item.formatter);
 
         } catch(Exception e){
             throw new Exception("Invalid date! Must be MM-DD-YYYY");
         }
     }
-    public String getDateString(){
-        return this.Invdate.format(Item.formatter);
-    }
-
-    protected int setID(){
-        this.Id = lastId++;
-        return this.Id;
+    public String getDate(){
+        return this.invDate.format(Item.formatter);
     }
 
     public Integer getId(){
@@ -53,5 +47,9 @@ public class Item {
         return this.title;
     }
 
+    @Override
+    public String toString(){
+        return "Id: " + this.Id + ", Title: " + this.title + ", Date: " + this.invDate;
+    }
 
 }
