@@ -3,13 +3,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Item {
-    private static Integer counter = 0;
-
+    private static int lastId = 0;
+    private  LocalDate Invdate;
     private Integer Id;
 
     private String title;
 
-    private LocalDate Invdate;
+
 
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
@@ -32,7 +32,7 @@ public class Item {
     }
 
     protected int setID(){
-        this.Id = counter++;
+        this.Id = lastId++;
         return this.Id;
     }
 
