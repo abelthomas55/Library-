@@ -1,3 +1,5 @@
+package inventory;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -12,7 +14,7 @@ public class Item {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
-    protected Item(String title, String invDate) throws Exception {
+    public Item(String title, String invDate) throws Exception {
         this.Id = Item.counter++;
         setTitle(title);
         setDate(String.valueOf(invDate));
