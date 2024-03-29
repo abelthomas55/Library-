@@ -8,10 +8,10 @@ public class Dvd extends Item {
         super(title, invdate);
     }
 
-    public Dvd(String title, String invdate, String author, String bookgenre) {
-        super(title, invdate, author, bookgenre);
-        this.director = author;
-        this.movieGenre = bookgenre;
+    public Dvd(String title, String invdate, String director, Moviegenre movieGenre) throws Exception {
+        super(title,invdate);
+        this.director = director;
+        this.movieGenre = getMovieGenre();
     }
 
     public String getDirector() {
@@ -27,22 +27,11 @@ public class Dvd extends Item {
         this.director = director;
     }
 
-    public void setMovieGenre(String MovieGenre){
+    public void setMovieGenre(){
         this.movieGenre =  movieGenre;
     }
 
-    public enum MovieGenre {
-        ACTION,
-        COMEDY,
-        DRAMA,
-        HORROR,
-        ROMANCE,
-        SCIENCE_FICTION,
-        THRILLER,
-        ANIMATION,
-        DOCUMENTARY,
-        FANTASY
-    }
+
 
 }
 
