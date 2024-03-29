@@ -9,6 +9,6 @@ public class Library {
         Item myItem = new Item("abc", "05-29-2024");
         System.out.println(myItem);
         Dvd myDvd = new Dvd("Lol" , "05-02-2024" , "Testdir", Moviegenre.ACTION);
-        System.out.println(myDvd);
+        System.out.println(myItem);
     }
 }

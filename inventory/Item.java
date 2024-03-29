@@ -17,10 +17,10 @@ public class Item {
     public Item(String title, String invDate) throws Exception {
         this.Id = Item.counter++;
         setTitle(title);
-        setDate(String.valueOf(invDate));
+        setInvDate(String.valueOf(invDate));
     }
 
-    public void setDate(String invDate) throws Exception {
+    public void setInvDate(String invDate) throws Exception {
         try {
             this.invDate = LocalDate.parse(invDate, Item.formatter);
 
@@ -28,7 +28,7 @@ public class Item {
             throw new Exception("Invalid date! Must be MM-DD-YYYY");
         }
     }
-    public String getDate(){
+    public String getInvDate(){
         return this.invDate.format(Item.formatter);
     }
 
@@ -54,4 +54,8 @@ public class Item {
         return "Id: " + this.Id + ", Title: " + this.title + ", Date: " + this.invDate;
     }
 
+
+    public void displayItem(){
+        System.out.printf("%3d %-15s %10s ", Id, title, getInvDate());
+    }
 }

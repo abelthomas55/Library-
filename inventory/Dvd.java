@@ -10,7 +10,7 @@ public class Dvd extends Item {
 
     public Dvd(String title, String invdate, String director, Moviegenre movieGenre) throws Exception {
         super(title,invdate);
-        this.director = director;
+        this.director = getDirector();
         this.movieGenre = getMovieGenre();
     }
 
@@ -31,6 +31,12 @@ public class Dvd extends Item {
         this.movieGenre =  movieGenre;
     }
 
+    @Override
+    public void displayItem(){
+        super.displayItem();
+        System.out.printf("%-15s %-10s\n", director, movieGenre);
+
+    }
 
 
 }
