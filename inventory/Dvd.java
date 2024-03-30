@@ -10,8 +10,12 @@ public class Dvd extends Item {
 
     public Dvd(String title, String invdate, String director, Moviegenre movieGenre) throws Exception {
         super(title,invdate);
-        this.director = getDirector();
-        this.movieGenre = getMovieGenre();
+        setDirector(director);
+        setMovieGenre(movieGenre);
+    }
+
+    public void setDirector(String director) throws Exception{
+        this.director = director;
     }
 
     public String getDirector() {
@@ -19,22 +23,18 @@ public class Dvd extends Item {
 
     }
 
+    public void setMovieGenre(Moviegenre movieGenre)throws Exception{
+        this.movieGenre = String.valueOf(movieGenre);
+    }
+
     public String getMovieGenre() {
         return movieGenre;
     }
 
-    public void setDirector(){
-        this.director = director;
-    }
 
-    public void setMovieGenre(){
-        this.movieGenre =  movieGenre;
-    }
-
-    @Override
-    public void displayItem(){
+    public void displayDvd(){
         super.displayItem();
-        System.out.printf("%-15s %-10s\n", director, movieGenre);
+        System.out.printf("  %-15s %-10s\n", director, movieGenre);
 
     }
 

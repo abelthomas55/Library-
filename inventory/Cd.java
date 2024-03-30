@@ -1,5 +1,3 @@
-
-
 package inventory;
 
 public class Cd extends Item {
@@ -11,10 +9,14 @@ public class Cd extends Item {
         super(title, invdate);
     }
 
-    public Cd(String title, String invdate, String artist, String musicGenre) {
-        super(title, invdate, artist, musicGenre);
+    public Cd(String title, String invdate, String artist, Musicgenre musicGenre) throws Exception {
+        super(title, invdate);
+        setArtist(artist);
+        setMusicGenre(musicGenre);
+    }
+
+    public void setArtist(String artist) throws Exception{
         this.artist = artist;
-        this.musicGenre = musicGenre;
     }
 
     public String getArtist() {
@@ -22,21 +24,17 @@ public class Cd extends Item {
 
     }
 
+    public void setMusicGenre(Musicgenre musicGenre) throws Exception{
+        this.musicGenre = String.valueOf(musicGenre);
+    }
+
     public String getMusicGenre() {
         return musicGenre;
     }
 
-    public void setArtist(){
-        this.artist = artist;
-    }
-
-    public void setMusicGenre(String musicGenre){
-        this.musicGenre =  musicGenre;
-    }
-    @Override
-    public void displayItem(){
+    public void displayCd(){
         super.displayItem();
-        System.out.printf("%-15s %-10s\n", artist, musicGenre);
+        System.out.printf("  %-15s %-10s\n", artist, musicGenre);
 
     }
 

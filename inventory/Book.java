@@ -4,16 +4,20 @@ package inventory;
 public class Book extends Item {
 
     private String author;
-    private String bookgenre;
+    private String bookGenre;
 
     public Book(String title, String invdate) throws Exception {
         super(title, invdate);
     }
 
-    public Book(String title, String invdate, String author, String bookgenre) {
-        super(title, invdate, author, bookgenre);
+    public Book(String title, String invdate, String author, Bookgenre bookGenre) throws Exception {
+        super(title, invdate);
+        setAuthor(author);
+        setBookGenre(bookGenre);
+    }
+
+    public void setAuthor(String author) throws Exception{
         this.author = author;
-        this.bookgenre = bookgenre;
     }
 
     public String getAuthor() {
@@ -21,21 +25,17 @@ public class Book extends Item {
 
     }
 
-    public String getgenre() {
-        return bookgenre;
+    public void setBookGenre(Bookgenre bookGenre) throws Exception{
+        this.bookGenre = String.valueOf(bookGenre);
     }
 
-    public void setauthor(){
-        this.author = author;
+    public String getBookgenre() {
+        return bookGenre;
     }
 
-    public void setgenre(String bookgenre){
-        this.bookgenre =  bookgenre;
-    }
-    @Override
-    public void displayItem(){
+    public void displayBook(){
         super.displayItem();
-        System.out.printf("%-15s %-10s\n", author, bookgenre);
+        System.out.printf("  %-15s %-10s\n", author, bookGenre);
 
     }
 

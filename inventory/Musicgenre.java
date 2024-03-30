@@ -10,5 +10,6 @@ package inventory;
         REGGAE,
         ELECTRONIC,
         BLUES,
-        R_B
+        R_B,
+        RAP
     }

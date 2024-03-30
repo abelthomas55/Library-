@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Item {
-    private static Integer counter = 0;
+    private static Integer counter = 1;
 
     private Integer Id;
 
@@ -56,6 +56,6 @@ public class Item {
 
 
     public void displayItem(){
-        System.out.printf("%3d %-15s %10s ", Id, title, getInvDate());
+        System.out.printf("%-3d %-15s %-10s ", Id, title, getInvDate());
     }
 }
