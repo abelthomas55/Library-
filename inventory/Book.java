@@ -10,7 +10,7 @@ public class Book extends Item {
         super(title, invdate);
     }
 
-    public Book(String title, String invdate, String author, Bookgenre bookGenre) throws Exception {
+    public Book(String title, String invdate, String author, BookGenre bookGenre) throws Exception {
         super(title, invdate);
         setAuthor(author);
         setBookGenre(bookGenre);
@@ -25,7 +25,7 @@ public class Book extends Item {
 
     }
 
-    public void setBookGenre(Bookgenre bookGenre) throws Exception{
+    public void setBookGenre(BookGenre bookGenre) throws Exception{
         this.bookGenre = String.valueOf(bookGenre);
     }
 
