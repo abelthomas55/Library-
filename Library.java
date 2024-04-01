@@ -16,21 +16,22 @@
 //        myBook.displayBook();
 //    }
 
-package library.app;
+
 import inventory.Book;
 import inventory.BookGenre;
 import inventory.Item;
+
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Library App that allows adding, deleting, displaying, saving, and loading
- inventory for Books, CDs, and DVDs.
+ * inventory for Books, CDs, and DVDs.
  * <a href="PUT_YOUR_URL_HERE">GitHub Repository URL</a>
  *
  * @author PUT_YOUR_NAMES_HERE
- * @since PUT_THE_CURRENT_DATE_HERE
  * @version 1.0 beta
- *
+ * @since PUT_THE_CURRENT_DATE_HERE
  */
 public class Library {
     /**
@@ -46,13 +47,15 @@ public class Library {
     /**
      * List to store all types of inventory items (Book, Cd, Dvd).
      */
-    private List<Item> inventory;
+    private final List<Item> inventory;
+
     /**
      * Default constructor instantiates the ArrayList for storing items.
      */
-    public Library(){
+    public Library() {
         this.inventory = new ArrayList<Item>();
     } // end of constructor
+
     /**
      * Display the program's title.
      */
@@ -61,17 +64,18 @@ public class Library {
         System.out.println("Welcome to the Library App");
         System.out.println(DOUBLE_LINE);
     } // end of displayAppHeading method
+
     /**
      * Allows the user to enter an inventory id to be deleted.
      */
-    private void deleteItem(){
+    private void deleteItem() {
         int id = 0;
         System.out.println("Delete Inventory");
         System.out.println(SINGLE_LINE);
         id = Input.getInt("Please enter the inventory id: ");
-        for (Item item : inventory){
+        for (Item item : inventory) {
             System.out.println(id);
-            if (item.getId() == id){
+            if (item.getId() == id) {
                 inventory.remove(item);
                 System.out.println("Successful Delete: " + item);
                 Input.getLine("Press enter to continue...");
@@ -80,18 +84,18 @@ public class Library {
         }
         System.out.println("ERROR: Inventory ID:" + id + " NOT found!");
     } // end of deleteItem method
+
     /**
      * Add a book to the Library's inventory. Allows the user to enter the book's
-     author and genre.
+     * author and genre.
      *
-     * @param title The item's title.
+     * @param title        The item's title.
      * @param dateReceived The item's date received into inventory.
-     * @param description The item's description which is not a required field.
      * @return The newly created book.
      * @throws Exception Any exception thrown to addBook will be back to the
-    calling method.
+     *                   calling method.
      */
-    private Book addBook(String title, String dateReceived, String description)
+    private Book addBook(String title, String dateReceived)
             throws Exception {
         Book book;
         int userInput = 0;
@@ -99,23 +103,24 @@ public class Library {
         BookGenre genre = null;
         author = Input.getString("Author: ");
         try {
-            userInput = Input.getIntRange("Genre 1=Fiction, 2= Non-Fiction, 3=Mystery, 4= Romance, 5= Science Fiction:
-                    ", 1, 5);
+            userInput = Input.getIntRange("Genre 1=Fiction, 2= Non-Fiction, 3=Mystery, 4= Romance, 5= Science Fiction: ", 1, 5);
                     genre = BookGenre.values()[userInput - 1];
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Invalid data! Book Genre = " + genre);
         }
         book = new Book(title, dateReceived, author, genre);
         return book;
     } // end of addBook method
+
     /**
      * Add an item to inventory. Allow's the user to enter the item's title,
-     description,
+     * description,
      * date received into inventory and then will call the appropriate item's type
-     (Book, CD, DVD) for additional
+     * (Book, CD, DVD) for additional
      * user's input.
+     *
      * @throws Exception All exceptions will be thrown back to the main menu for
-    handling.
+     *                   handling.
      */
     private void addItem() throws Exception {
         String title = null;
@@ -127,9 +132,9 @@ public class Library {
         title = Input.getString("Title: ");
         dateReceived = Input.getDate("Date Received (MM-DD-YYYY): ");
         inventoryType = Input.getIntRange("Type 1=Book, 2=CD, 3=DVD: ", 1, 3);
-        switch(inventoryType){
+        switch (inventoryType) {
             case 1:
-                Book book = addBook(title, dateReceived,);
+                Book book = addBook(title, dateReceived);
                 inventory.add(book);
                 System.out.println("Successful Add: " + book);
                 Input.getLine("Press enter to continue...");
@@ -143,17 +148,17 @@ public class Library {
                         inventoryType);
         } // end of switch
     } // end of addItem method
+
     /**
      * Display the Library's inventory's detail group by inventory type.
      */
-    private void displayInventory(){
+    private void displayInventory() {
         System.out.println("Book Inventory");
         System.out.println(SINGLE_LINE);
         System.out.println("ID Title Date Rec'd Author Genre");
-        System.out.println("--- --------------- ---------- ---------------
-                ----------");
+        System.out.println("--- --------------- ---------- --------------- ----------");
         for (Item item : inventory) {
-            if (item instanceof Book){
+            if (item instanceof Book) {
                 item.displayItem();
             }
         }
@@ -161,11 +166,13 @@ public class Library {
 //TO-DO: ADD LOGIC FOR DISPLAYING OTHER INVENTORY TYPES
         Input.getLine("Press enter to continue...");
     } // end of displayInventory
+
     /**
      * The main menu that allows the user to add, delete, display, load, and save
-     inventory.
+     * inventory.
+     *
      * @throws Exception All exceptions will be displayed or thrown back to the
-    main method.
+     *                   main method.
      */
     private void mainMenu() throws Exception {
         boolean keepRunning = true;
@@ -190,7 +197,7 @@ public class Library {
                 case 1:
                     try {
                         this.addItem();
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                         Input.getLine("Press enter to continue...");
                     }
@@ -198,7 +205,7 @@ public class Library {
                 case 2:
                     try {
                         this.deleteItem();
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                         Input.getLine("Press enter to continue...");
                     }
@@ -215,11 +222,13 @@ public class Library {
             } // end of switch
         } // end of while loop
     } // end of mainMenu
+
     /**
      * Main method to keep the Library App running
+     *
      * @param args Not used
      * @throws Exception Any type of exceptions thrown back to main will be
-    displayed and end the program.
+     *                   displayed and end the program.
      */
     public static void main(String[] args) throws Exception {
         library.app.Library app = new library.app.Library();
@@ -228,8 +237,7 @@ public class Library {
             app.mainMenu();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Sorry but this program ended with an error. Please
-                    contact Princess Debbie!");
+            System.out.println("Sorry but this program ended with an error. Please, contact Hunter Schoch or Abel Thomas!");
         }
         Input.sc.close();
     } // end of main method
