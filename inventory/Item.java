@@ -1,9 +1,10 @@
 package inventory;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Item {
+public class Item implements Serializable {
     private static Integer counter = 1;
 
     private Integer Id;

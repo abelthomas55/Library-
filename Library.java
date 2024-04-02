@@ -21,6 +21,7 @@ import inventory.Book;
 import inventory.BookGenre;
 import inventory.Item;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class Library {
     /**
      * List to store all types of inventory items (Book, Cd, Dvd).
      */
-    private final List<Item> inventory;
+    private List<Item> inventory;
 
     /**
      * Default constructor instantiates the ArrayList for storing items.
@@ -222,6 +223,33 @@ public class Library {
             } // end of switch
         } // end of while loop
     } // end of mainMenu
+
+    private void SaveInventory(){
+        //write to file
+        try{
+            FileOutputStream writeData = new FileOutputStream("libraryData.ser");
+            ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
+
+            writeStream.writeObject(inventory);
+            writeStream.flush();
+            writeStream.close();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void readInventoryData(){
+        try{
+            FileInputStream readData = new FileInputStream("peopledata.ser");
+            ObjectInputStream readStream = new ObjectInputStream(readData);
+
+            this.inventory = (ArrayList<Item>) readStream.readObject();
+            readStream.close();
+            System.out.println(people2.toString());
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Main method to keep the Library App running
