@@ -6,9 +6,4 @@ public enum Moviegenre {
     DRAMA,
     HORROR,
     ROMANCE,
-    SCIENCE_FICTION,
-    THRILLER,
-    ANIMATION,
-    DOCUMENTARY,
-    FANTASY
 }

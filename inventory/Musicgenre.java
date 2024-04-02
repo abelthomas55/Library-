@@ -5,11 +5,5 @@ package inventory;
         POP,
         HIP_HOP,
         JAZZ,
-        CLASSICAL,
         COUNTRY,
-        REGGAE,
-        ELECTRONIC,
-        BLUES,
-        R_B,
-        RAP
     }

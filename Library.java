@@ -20,6 +20,11 @@
 import inventory.Book;
 import inventory.BookGenre;
 import inventory.Item;
+import inventory.Cd;
+import inventory.Musicgenre;
+import inventory.Dvd;
+import inventory.Moviegenre;
+import Input.Input;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -96,13 +101,14 @@ public class Library {
      * @throws Exception Any exception thrown to addBook will be back to the
      *                   calling method.
      */
-    private Book addBook(String title, String dateReceived)
-            throws Exception {
+    private Book addBook(String title, String dateReceived) throws Exception {
         Book book;
         int userInput = 0;
         String author = null;
         BookGenre genre = null;
+
         author = Input.getString("Author: ");
+
         try {
             userInput = Input.getIntRange("Genre 1=Fiction, 2= Non-Fiction, 3=Mystery, 4= Romance, 5= Science Fiction: ", 1, 5);
                     genre = BookGenre.values()[userInput - 1];
@@ -111,7 +117,67 @@ public class Library {
         }
         book = new Book(title, dateReceived, author, genre);
         return book;
+
     } // end of addBook method
+
+    /**
+     * Add a book to the Library's inventory. Allows the user to enter the book's
+     * author and genre.
+     *
+     * @param title        The item's title.
+     * @param dateReceived The item's date received into inventory.
+     * @return The newly created cd.
+     * @throws Exception Any exception thrown to addCd will be back to the
+     *                   calling method.
+     */
+    private Cd addCd(String title, String dateReceived) throws Exception {
+        Cd cd;
+        int userInput = 0;
+        String artist = null;
+        Musicgenre genre = null;
+
+        artist = Input.getString("Artist: ");
+
+        try {
+            userInput = Input.getIntRange("Genre 1=Rock, 2=Pop, 3=Hip Hop, 4=Jazz, 5=Country: ", 1, 5);
+            genre = Musicgenre.values()[userInput - 1];
+        } catch (Exception e) {
+            throw new Exception("Invalid data! Music Genre = " + genre);
+        }
+        cd = new Cd(title, dateReceived, artist, genre);
+        return cd;
+
+    } // end of Cd method
+
+    /**
+     * Add a book to the Library's inventory. Allows the user to enter the book's
+     * author and genre.
+     *
+     * @param title        The item's title.
+     * @param dateReceived The item's date received into inventory.
+     * @return The newly created dvd.
+     * @throws Exception Any exception thrown to addDvd will be back to the
+     *                   calling method.
+     */
+
+    private Dvd addDvd(String title, String dateReceived) throws Exception {
+        Dvd dvd;
+        int userInput = 0;
+        String director = null;
+        Moviegenre genre = null;
+
+        director = Input.getString("Director: ");
+
+        try {
+            userInput = Input.getIntRange("Genre 1=Action, 2=Comedy, 3=Drama, 4=Horror, 5=Romance: ", 1, 5);
+            genre = Moviegenre.values()[userInput - 1];
+        } catch (Exception e) {
+            throw new Exception("Invalid data! Movie Genre = " + genre);
+        }
+        dvd = new Dvd(title, dateReceived, director, genre);
+        return dvd;
+
+    } // end of Dvd method
 
     /**
      * Add an item to inventory. Allow's the user to enter the item's title,
@@ -141,8 +207,16 @@ public class Library {
                 Input.getLine("Press enter to continue...");
                 break;
             case 2:
+                Cd cd = addCd(title, dateReceived);
+                inventory.add(cd);
+                System.out.println("Successful Add: " + cd);
+                Input.getLine("Press enter to continue...");
                 break;
             case 3:
+                Dvd dvd = addDvd(title, dateReceived);
+                inventory.add(dvd);
+                System.out.println("Successful Add: " + dvd);
+                Input.getLine("Press enter to continue...");
                 break;
             default:
                 throw new Exception("Invalid Input! Inventory Type = " +
