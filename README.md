@@ -5,10 +5,10 @@
 - [Summary](#summary)
 
 - [How it Works](#how-it-works)
-- [Images of the library working](#images-of-the-library-working).
-  - [Adding to the library](#adding-to-the-library)
-  - [Deleting an item](#deleting-an-item)
-  - [Writting to a file](#writting-to-a-file)
+- [Images of the library](#images-of-the-library).
+  - [Adding to the inventory](#adding-to-the-inventory)
+  - [Removing from the inventory](#removing-from-the-inventory)
+  - [Loading from a file](#Loading-from-a-file)
 - [Maintainers](#maintainers)
 
 ## Summary
@@ -19,23 +19,23 @@
 
 [Back to Top](#how-it-works)
 
-## Images of the library working
+## Images of the library
 
-### Adding to the library
+### Adding to the inventory
 
-![Adding to the library](images/colder.gif)
-
-[Back to Top](#how-it-works)
-
-### Deleting an item
-
-![Deleting an item](images/warmer.gif)
+![Adding to the inventory](images/adding.png)
 
 [Back to Top](#how-it-works)
 
-### Writting to a file
+### Removing from the inventory
 
-![Writting to a file](images/complete.gif)
+![Removing from the inventory](images/remove.png)
+
+[Back to Top](#how-it-works)
+
+### Loading from a file
+
+![Loading from a file](images/load.png)
 
 [Back to Top](#how-it-works)
 
