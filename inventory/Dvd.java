@@ -15,6 +15,8 @@ public class Dvd extends Item {
     }
 
     public void setDirector(String director) throws Exception{
+        director = director.trim();
+        director = director.substring(0,1).toUpperCase() + director.substring(1);
         this.director = director;
     }
 

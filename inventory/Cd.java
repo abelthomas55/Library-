@@ -16,6 +16,8 @@ public class Cd extends Item {
     }
 
     public void setArtist(String artist) throws Exception{
+        artist = artist.trim();
+        artist = artist.substring(0,1).toUpperCase() + artist.substring(1);
         this.artist = artist;
     }
 
