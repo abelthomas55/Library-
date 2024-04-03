@@ -15,7 +15,10 @@
  
 ## How it Works
 
-
+This app allows you to create on store inventory items. The 3 Items that are allowed are Books, CDs, and DVDs.
+Each Item stores atleast an ID, Title, and Inventry Date. Each subclass then stores specific information pertaining
+to the item. So Book would store author and book genre. The inventory is stored in an ArrayList which can be saved to
+a file. It then can be loaded in to continue the inventory. 
 
 [Back to Top](#how-it-works)
 
