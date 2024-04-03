@@ -230,7 +230,7 @@ public class Library {
     private void displayInventory() {
         System.out.println("Book Inventory");
         System.out.println(SINGLE_LINE);
-        System.out.println("ID Title Date Rec'd Author Genre");
+        System.out.println("ID       Title      Date Rec'd      Author        Genre");
         System.out.println("--- --------------- ---------- --------------- ----------");
         for (Item item : inventory) {
             if (item instanceof Book) {
@@ -256,7 +256,7 @@ public class Library {
             System.out.println(SINGLE_LINE);
             System.out.println("Main Menu");
             System.out.println(SINGLE_LINE);
-            System.out.println("0 = End Game");
+            System.out.println("0 = End Application");
             System.out.println("1 = Add Item");
             System.out.println("2 = Delete Item");
             System.out.println("3 = Display Inventory");
@@ -319,7 +319,7 @@ public class Library {
 
             this.inventory = (ArrayList<Item>) readStream.readObject();
             readStream.close();
-            System.out.println(people2.toString());
+            System.out.println(inventory.toString());
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -333,7 +333,7 @@ public class Library {
      *                   displayed and end the program.
      */
     public static void main(String[] args) throws Exception {
-        library.app.Library app = new library.app.Library();
+        Library app = new Library();
         app.displayAppHeading();
         try {
             app.mainMenu();

@@ -32,8 +32,8 @@ public class Book extends Item {
     public String getBookgenre() {
         return bookGenre;
     }
-
-    public void displayBook(){
+    @Override
+    public void displayItem(){
         super.displayItem();
         System.out.printf("  %-15s %-10s\n", author, bookGenre);
 

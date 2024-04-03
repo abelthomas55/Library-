@@ -32,7 +32,8 @@ public class Cd extends Item {
         return musicGenre;
     }
 
-    public void displayCd(){
+    @Override
+    public void displayItem(){
         super.displayItem();
         System.out.printf("  %-15s %-10s\n", artist, musicGenre);
 
