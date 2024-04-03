@@ -33,11 +33,11 @@ import java.util.List;
 /**
  * Library App that allows adding, deleting, displaying, saving, and loading
  * inventory for Books, CDs, and DVDs.
- * <a href="PUT_YOUR_URL_HERE">GitHub Repository URL</a>
+ * <a href="https://github.com/abelthomas55/Library-">GitHub Repository URL</a>
  *
- * @author PUT_YOUR_NAMES_HERE
+ * @author Hunter Schoch Abel Thomas
  * @version 1.0 beta
- * @since PUT_THE_CURRENT_DATE_HERE
+ * @since 4/2/2024
  */
 public class Library {
     /**
@@ -230,10 +230,28 @@ public class Library {
     private void displayInventory() {
         System.out.println("Book Inventory");
         System.out.println(SINGLE_LINE);
-        System.out.println("ID       Title      Date Rec'd      Author        Genre");
-        System.out.println("--- --------------- ---------- --------------- ----------");
+        System.out.println("ID       Title      Date Rec'd      Author          Genre");
+        System.out.println("--- --------------- ---------- --------------- ---------------");
         for (Item item : inventory) {
             if (item instanceof Book) {
+                item.displayItem();
+            }
+        }
+        System.out.println("CD Inventory");
+        System.out.println(SINGLE_LINE);
+        System.out.println("ID       Title      Date Rec'd      Artist          Genre");
+        System.out.println("--- --------------- ---------- --------------- ---------------");
+        for (Item item : inventory) {
+            if (item instanceof Cd) {
+                item.displayItem();
+            }
+        }
+        System.out.println("DVD Inventory");
+        System.out.println(SINGLE_LINE);
+        System.out.println("ID       Title      Date Rec'd      Director        Genre");
+        System.out.println("--- --------------- ---------- --------------- ---------------");
+        for (Item item : inventory) {
+            if (item instanceof Dvd) {
                 item.displayItem();
             }
         }
@@ -289,8 +307,10 @@ public class Library {
                     displayInventory();
                     break;
                 case 4:
+                    saveInventory();
                     break;
                 case 5:
+                    readInventoryData();
                     break;
                 default:
                     throw new Exception("Invalid menu choice: " + userInput);
@@ -298,7 +318,7 @@ public class Library {
         } // end of while loop
     } // end of mainMenu
 
-    private void SaveInventory(){
+    private void saveInventory(){
         //write to file
         try{
             FileOutputStream writeData = new FileOutputStream("libraryData.ser");
@@ -314,7 +334,7 @@ public class Library {
     }
     private void readInventoryData(){
         try{
-            FileInputStream readData = new FileInputStream("peopledata.ser");
+            FileInputStream readData = new FileInputStream("libraryData.ser");
             ObjectInputStream readStream = new ObjectInputStream(readData);
 
             this.inventory = (ArrayList<Item>) readStream.readObject();

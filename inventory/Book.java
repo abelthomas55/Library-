@@ -17,6 +17,8 @@ public class Book extends Item {
     }
 
     public void setAuthor(String author) throws Exception{
+        author = author.trim();
+        author = author.substring(0,1).toUpperCase() + author.substring(1);
         this.author = author;
     }
 
@@ -35,7 +37,7 @@ public class Book extends Item {
     @Override
     public void displayItem(){
         super.displayItem();
-        System.out.printf("  %-15s %-10s\n", author, bookGenre);
+        System.out.printf("%-15s %-15s\n", author, bookGenre);
 
     }
 
