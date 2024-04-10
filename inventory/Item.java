@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Item implements Serializable {
+public abstract class Item implements Serializable {
     private static Integer counter = 1;
 
-    private Integer Id;
+ protected Integer Id;
 
-    private String title;
+    protected String title;
 
-    private LocalDate invDate;
+    protected LocalDate invDate;
 
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
@@ -33,6 +33,9 @@ public class Item implements Serializable {
         return this.invDate.format(Item.formatter);
     }
 
+    public static void setCounter (int id){
+        Item.counter = id;
+    }
     public Integer getId(){
         return Id;
     }
@@ -59,7 +62,6 @@ public class Item implements Serializable {
     }
 
 
-    public void displayItem(){
-        System.out.printf("%-3d %-15s %-10s ", Id, title, getInvDate());
-    }
+    public abstract void displayItem();
+
 }

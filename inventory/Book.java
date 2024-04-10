@@ -9,8 +9,13 @@ public class Book extends Item {
     public Book(String title, String invdate) throws Exception {
         super(title, invdate);
     }
-
     public Book(String title, String invdate, String author, BookGenre bookGenre) throws Exception {
+        super(title, invdate);
+        setAuthor(author);
+        setBookGenre(bookGenre);
+    }
+
+    public Book(int id,String title, String invdate, String author, BookGenre bookGenre) throws Exception {
         super(title, invdate);
         setAuthor(author);
         setBookGenre(bookGenre);
@@ -36,7 +41,7 @@ public class Book extends Item {
     }
     @Override
     public void displayItem(){
-        super.displayItem();
+        System.out.printf("%-3d %-15s %-10s ", Id, title, getInvDate());
         System.out.printf("%-15s %-15s\n", author, bookGenre);
 
     }

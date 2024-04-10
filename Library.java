@@ -337,9 +337,10 @@ public class Library {
             FileInputStream readData = new FileInputStream("libraryData.ser");
             ObjectInputStream readStream = new ObjectInputStream(readData);
 
-            this.inventory = (ArrayList<Item>) readStream.readObject();
+            inventory = (ArrayList<Item>) readStream.readObject();
             readStream.close();
             System.out.println(inventory.toString());
+            Item.setCounter(inventory.get(inventory.size()- 1.getId());
         }catch (Exception e) {
             e.printStackTrace();
         }
