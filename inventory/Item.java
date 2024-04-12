@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public abstract class Item implements Serializable {
     private static Integer counter = 1;
 
- protected Integer Id;
+    protected Integer id;
 
     protected String title;
 
@@ -16,7 +16,7 @@ public abstract class Item implements Serializable {
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
     public Item(String title, String invDate) throws Exception {
-        this.Id = Item.counter++;
+        this.id = Item.counter++;
         setTitle(title);
         setInvDate(String.valueOf(invDate));
     }
@@ -37,7 +37,7 @@ public abstract class Item implements Serializable {
         Item.counter = id;
     }
     public Integer getId(){
-        return Id;
+        return id;
     }
 
 
@@ -58,7 +58,7 @@ public abstract class Item implements Serializable {
 
     @Override
     public String toString(){
-        return "Id: " + this.Id + ", Title: " + this.title + ", Date: " + this.invDate;
+        return "Id: " + this.id + ", Title: " + this.title + ", Date: " + this.invDate;
     }
 
 

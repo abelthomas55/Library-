@@ -1,6 +1,6 @@
 package inventory;
 
-public class Dvd extends Item {
+public class Dvd extends Item implements Checkoutable{
     private String director;
     private String movieGenre;
 
@@ -34,8 +34,18 @@ public class Dvd extends Item {
     }
 
     @Override
+    public void checkout(){
+
+    }
+
+    @Override
+    public void returned(){
+
+    }
+
+    @Override
     public void displayItem(){
-        super.displayItem();
+        System.out.printf("%-3d %-15s %-10s ", id, title, getInvDate());
         System.out.printf("  %-15s %-15s\n", director, movieGenre);
 
     }

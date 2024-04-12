@@ -1,22 +1,3 @@
-//import inventory.Book;
-//import inventory.Cd;
-//import inventory.*;
-
-//public class Library {
-//    public static void main(String[] args) throws Exception {
-//        Item myItem = new Item("abc", "05-29-2024");
-//        System.out.println(myItem);
-//        Dvd myDvd = new Dvd("Testtitle", "01-01-2024", "testDir",Moviegenre.ACTION);
-//        myDvd.displayDvd();
-//        Dvd myDvd2 = new Dvd("test2", "01-02-2024", "TestDir2", Moviegenre.COMEDY);
-//        myDvd2.displayDvd();
-//        Cd myCd = new Cd("testCd", "01-03-2024", "TestArtist", Musicgenre.RAP);
-//        myCd.displayCd();
-//        Book myBook = new Book("TetsBtitle", "01-04-2024", "TestAuthor", Bookgenre.FICTION);
-//        myBook.displayBook();
-//    }
-
-
 import inventory.Book;
 import inventory.BookGenre;
 import inventory.Item;
@@ -320,6 +301,7 @@ public class Library {
 
     private void saveInventory(){
         //write to file
+        System.out.println("Please wait while we save the library.");
         try{
             FileOutputStream writeData = new FileOutputStream("libraryData.ser");
             ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
@@ -331,8 +313,10 @@ public class Library {
         }catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Library has been saved.");
     }
     private void readInventoryData(){
+        System.out.println("Please wait while we grab the library information.");
         try{
             FileInputStream readData = new FileInputStream("libraryData.ser");
             ObjectInputStream readStream = new ObjectInputStream(readData);
@@ -340,10 +324,11 @@ public class Library {
             inventory = (ArrayList<Item>) readStream.readObject();
             readStream.close();
             System.out.println(inventory.toString());
-            Item.setCounter(inventory.get(inventory.size()- 1.getId());
+            Item.setCounter(inventory.get(inventory.size()- 1).getId());
         }catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("Library has been uploaded.");
     }
 
     /**

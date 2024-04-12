@@ -5,37 +5,40 @@
 - [Summary](#summary)
 
 - [How it Works](#how-it-works)
-- [Images of the library working](#images-of-the-library-working).
-  - [Adding to the library](#adding-to-the-library)
-  - [Deleting an item](#deleting-an-item)
-  - [Writting to a file](#writting-to-a-file)
+- [Images of the library](#images-of-the-library).
+  - [Adding to the inventory](#adding-to-the-inventory)
+  - [Removing from the inventory](#removing-from-the-inventory)
+  - [Loading from a file](#Loading-from-a-file)
 - [Maintainers](#maintainers)
 
 ## Summary
  
 ## How it Works
 
-
-
-[Back to Top](#how-it-works)
-
-## Images of the library working
-
-### Adding to the library
-
-![Adding to the library](images/colder.gif)
+This app allows you to create on store inventory items. The 3 Items that are allowed are Books, CDs, and DVDs.
+Each Item stores atleast an ID, Title, and Inventry Date. Each subclass then stores specific information pertaining
+to the item. So Book would store author and book genre. The inventory is stored in an ArrayList which can be saved to
+a file. It then can be loaded in to continue the inventory. 
 
 [Back to Top](#how-it-works)
 
-### Deleting an item
+## Images of the library
 
-![Deleting an item](images/warmer.gif)
+### Adding to the inventory
+
+![Adding to the inventory](images/adding.png)
 
 [Back to Top](#how-it-works)
 
-### Writting to a file
+### Removing from the inventory
 
-![Writting to a file](images/complete.gif)
+![Removing from the inventory](images/remove.png)
+
+[Back to Top](#how-it-works)
+
+### Loading from a file
+
+![Loading from a file](images/load.png)
 
 [Back to Top](#how-it-works)
 

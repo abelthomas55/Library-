@@ -1,7 +1,7 @@
 
 package inventory;
 
-public class Book extends Item {
+public class Book extends Item implements Checkoutable {
 
     private String author;
     private String bookGenre;
@@ -39,9 +39,34 @@ public class Book extends Item {
     public String getBookgenre() {
         return bookGenre;
     }
+
+    public boolean setCheckedOut(){
+        this.checkout() = checkout();
+    }
+
+    @Override
+    public boolean isCheckedOut(){
+        return isCheckedOut();
+    }
+
+    @Override
+    public void checkout(){
+        if (isCheckedOut()) {
+            System.out.println("This book has been checked out.");
+        }
+        else {
+            setCheckedOut(true);
+        }
+    }
+
+    @Override
+    public void returned(){
+
+    }
+
     @Override
     public void displayItem(){
-        System.out.printf("%-3d %-15s %-10s ", Id, title, getInvDate());
+        System.out.printf("%-3d %-15s %-10s ", id, title, getInvDate());
         System.out.printf("%-15s %-15s\n", author, bookGenre);
 
     }

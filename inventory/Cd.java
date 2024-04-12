@@ -1,6 +1,6 @@
 package inventory;
 
-public class Cd extends Item {
+public class Cd extends Item implements Checkoutable{
 
     private String artist;
     private String musicGenre;
@@ -35,8 +35,18 @@ public class Cd extends Item {
     }
 
     @Override
+    public void checkout(){
+
+    }
+
+    @Override
+    public void returned(){
+
+    }
+
+    @Override
     public void displayItem(){
-        super.displayItem();
+        System.out.printf("%-3d %-15s %-10s ", id, title, getInvDate());
         System.out.printf("  %-15s %-15s\n", artist, musicGenre);
 
     }
