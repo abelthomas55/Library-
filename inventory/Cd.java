@@ -1,6 +1,6 @@
 package inventory;
 
-public class Cd extends Item implements Checkoutable{
+public class Cd extends Item implements CheckInOut{
 
     private String artist;
     private String musicGenre;
@@ -34,15 +34,39 @@ public class Cd extends Item implements Checkoutable{
         return musicGenre;
     }
 
+    public boolean setCheckedOut(boolean b){
+        this.checkOut();
+        return false;
+    }
+
+
     @Override
-    public void checkout(){
+    public void checkIn() {
+        if(!isCheckedOut()){
+            System.out.println("This CD is available to be Checked Out");
+        }
+        else {
+            setCheckedOut(false);
+        }
 
     }
 
-    @Override
-    public void returned(){
 
+
+    @Override
+    public void checkOut(){
+        if (isCheckedOut()) {
+            System.out.println("This CD has been checked out.");
+        }
+        else {
+            setCheckedOut(true);
+        }
     }
+    @Override
+    public boolean isCheckedOut(){
+        return isCheckedOut();
+    }
+
 
     @Override
     public void displayItem(){

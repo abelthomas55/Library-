@@ -204,7 +204,58 @@ public class Library {
                         inventoryType);
         } // end of switch
     } // end of addItem method
+    private void checkIn() {
+        int id = 0;
+        System.out.println("Check in Inventory");
+        System.out.println(SINGLE_LINE);
+        id = Input.getInt("Please enter the inventory id: ");
+        for (Item item : inventory) {
+            System.out.println(id);
+            if (item.getId() == id) {
+                if( item instanceof Book){
+                    Book book = (Book) item;
+                    if(!book.isCheckedOut()) book.checkOut();
+                }
+                if( item instanceof Cd){
+                    Cd cd = (Cd) item;
+                    if(!cd.isCheckedOut()) cd.checkOut();
+                }
+                if( item instanceof Dvd){
+                    Dvd dvd = (Dvd) item;
+                    if(!dvd.isCheckedOut()) dvd.checkOut();
+                }
 
+                return;
+            }
+        }
+        System.out.println("ERROR: Inventory ID:" + id + " NOT found!");
+    } // end of CheckIn method
+    private void checkOut() {
+        int id = 0;
+        System.out.println("Checkout Inventory");
+        System.out.println(SINGLE_LINE);
+        id = Input.getInt("Please enter the inventory id: ");
+        for (Item item : inventory) {
+            System.out.println(id);
+            if (item.getId() == id) {
+                if( item instanceof Book){
+                    Book book = (Book) item;
+                    if(!book.isCheckedOut()) book.checkIn();
+                }
+                if( item instanceof Cd){
+                    Cd cd = (Cd) item;
+                    if(!cd.isCheckedOut()) cd.checkIn();
+                }
+                if( item instanceof Dvd){
+                    Dvd dvd = (Dvd) item;
+                    if(!dvd.isCheckedOut()) dvd.checkIn();
+                }
+
+                return;
+            }
+        }
+        System.out.println("ERROR: Inventory ID:" + id + " NOT found!");
+    } // end of CheckOut method
     /**
      * Display the Library's inventory's detail group by inventory type.
      */
@@ -293,6 +344,13 @@ public class Library {
                 case 5:
                     readInventoryData();
                     break;
+                case 6:
+                    checkIn();
+                    break;
+                case 7:
+                    checkOut();
+                    break;
+
                 default:
                     throw new Exception("Invalid menu choice: " + userInput);
             } // end of switch
@@ -330,6 +388,7 @@ public class Library {
         }
         System.out.println("Library has been uploaded.");
     }
+
 
     /**
      * Main method to keep the Library App running

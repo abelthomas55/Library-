@@ -1,6 +1,6 @@
 package inventory;
 
-public class Dvd extends Item implements Checkoutable{
+public class Dvd extends Item implements CheckInOut{
     private String director;
     private String movieGenre;
 
@@ -33,15 +33,39 @@ public class Dvd extends Item implements Checkoutable{
         return movieGenre;
     }
 
+    public boolean setCheckedOut(boolean b){
+        this.checkOut();
+        return false;
+    }
+
+
     @Override
-    public void checkout(){
+    public void checkIn() {
+        if(!isCheckedOut()){
+            System.out.println("This DVD is available to be Checked Out");
+        }
+        else {
+            setCheckedOut(false);
+        }
 
     }
 
-    @Override
-    public void returned(){
 
+
+    @Override
+    public void checkOut(){
+        if (isCheckedOut()) {
+            System.out.println("This DVD has been checked out.");
+        }
+        else {
+            setCheckedOut(true);
+        }
     }
+    @Override
+    public boolean isCheckedOut(){
+        return isCheckedOut();
+    }
+
 
     @Override
     public void displayItem(){

@@ -1,7 +1,7 @@
 
 package inventory;
 
-public class Book extends Item implements Checkoutable {
+public class Book extends Item implements CheckInOut {
 
     private String author;
     private String bookGenre;
@@ -40,17 +40,27 @@ public class Book extends Item implements Checkoutable {
         return bookGenre;
     }
 
-    public boolean setCheckedOut(){
-        this.checkout() = checkout();
+    public boolean setCheckedOut(boolean b){
+         this.checkOut();
+        return false;
     }
 
-    @Override
-    public boolean isCheckedOut(){
-        return isCheckedOut();
-    }
 
     @Override
-    public void checkout(){
+    public void checkIn() {
+        if(!isCheckedOut()){
+            System.out.println("This book is available to be Checked Out");
+        }
+        else {
+            setCheckedOut(false);
+        }
+
+        }
+
+
+
+    @Override
+    public void checkOut(){
         if (isCheckedOut()) {
             System.out.println("This book has been checked out.");
         }
@@ -58,10 +68,9 @@ public class Book extends Item implements Checkoutable {
             setCheckedOut(true);
         }
     }
-
     @Override
-    public void returned(){
-
+    public boolean isCheckedOut(){
+        return isCheckedOut();
     }
 
     @Override
