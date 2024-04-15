@@ -59,9 +59,11 @@ public class Library {
         int id = 0;
         System.out.println("Delete Inventory");
         System.out.println(SINGLE_LINE);
+        for (Item item : inventory) {
+            System.out.println(item);
+        }
         id = Input.getInt("Please enter the inventory id: ");
         for (Item item : inventory) {
-            System.out.println(id);
             if (item.getId() == id) {
                 inventory.remove(item);
                 System.out.println("Successful Delete: " + item);
@@ -208,21 +210,36 @@ public class Library {
         int id = 0;
         System.out.println("Check in Inventory");
         System.out.println(SINGLE_LINE);
+        for (Item item : inventory) {
+            System.out.println(item);
+        }
         id = Input.getInt("Please enter the inventory id: ");
         for (Item item : inventory) {
-            System.out.println(id);
             if (item.getId() == id) {
+                System.out.println("First if");
                 if( item instanceof Book){
                     Book book = (Book) item;
-                    if(!book.isCheckedOut()) book.checkOut();
+                    System.out.println("Second if Book");
+                    if(!book.isCheckedOut()){
+                        book.checkOut();
+                        System.out.println("Third if Book");
+                    }
                 }
                 if( item instanceof Cd){
                     Cd cd = (Cd) item;
-                    if(!cd.isCheckedOut()) cd.checkOut();
+                    System.out.println("Second if CD");
+                    if(!cd.isCheckedOut()){
+                        cd.checkOut();
+                        System.out.println("Third if CD");
+                    }
                 }
                 if( item instanceof Dvd){
                     Dvd dvd = (Dvd) item;
-                    if(!dvd.isCheckedOut()) dvd.checkOut();
+                    System.out.println("Second if DVD");
+                    if(!dvd.isCheckedOut()){
+                        dvd.checkOut();
+                        System.out.println("Third if DVD");
+                    }
                 }
 
                 return;
@@ -234,9 +251,11 @@ public class Library {
         int id = 0;
         System.out.println("Checkout Inventory");
         System.out.println(SINGLE_LINE);
+        for (Item item : inventory) {
+            System.out.println(item);
+        }
         id = Input.getInt("Please enter the inventory id: ");
         for (Item item : inventory) {
-            System.out.println(id);
             if (item.getId() == id) {
                 if( item instanceof Book){
                     Book book = (Book) item;
@@ -269,6 +288,7 @@ public class Library {
                 item.displayItem();
             }
         }
+        System.out.println();
         System.out.println("CD Inventory");
         System.out.println(SINGLE_LINE);
         System.out.println("ID       Title      Date Rec'd      Artist          Genre");
@@ -278,6 +298,7 @@ public class Library {
                 item.displayItem();
             }
         }
+        System.out.println();
         System.out.println("DVD Inventory");
         System.out.println(SINGLE_LINE);
         System.out.println("ID       Title      Date Rec'd      Director        Genre");
@@ -312,8 +333,10 @@ public class Library {
             System.out.println("3 = Display Inventory");
             System.out.println("4 = Save Inventory");
             System.out.println("5 = Load Inventory");
+            System.out.println("6 = Check in Inventory");
+            System.out.println("7 = Check out Inventory");
             System.out.println(SINGLE_LINE);
-            userInput = Input.getIntRange("Menu Choice: ", 0, 6);
+            userInput = Input.getIntRange("Menu Choice: ", 0, 8);
             System.out.println(SINGLE_LINE);
             switch (userInput) {
                 case 0:
