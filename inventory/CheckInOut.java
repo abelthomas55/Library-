@@ -1,7 +1,7 @@
 package inventory;
 
 public interface CheckInOut {
-    void checkOut();
+    boolean checkOut();
     void checkIn();
 
     boolean isCheckedOut();

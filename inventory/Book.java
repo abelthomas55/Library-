@@ -60,17 +60,18 @@ public class Book extends Item implements CheckInOut {
 
 
     @Override
-    public void checkOut(){
+    public boolean checkOut(){
         if (isCheckedOut()) {
             System.out.println("This book has been checked out.");
         }
         else {
             setCheckedOut(true);
         }
+        return false;
     }
     @Override
     public boolean isCheckedOut(){
-        return isCheckedOut();
+        return checkOut();
     }
 
     @Override
