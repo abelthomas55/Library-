@@ -13,13 +13,17 @@ public abstract class Item implements Serializable {
 
     protected LocalDate invDate;
 
+    protected String description;
+
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
-    public Item(String title, String invDate) throws Exception {
+    public Item(String title, String invDate , String description) throws Exception {
         this.id = Item.counter++;
         setTitle(title);
         setInvDate(String.valueOf(invDate));
+        setDescription(description);
     }
+
 
     public void setInvDate(String invDate) throws Exception {
         try {
@@ -40,11 +44,15 @@ public abstract class Item implements Serializable {
         return id;
     }
 
+    public void setDescription(String description){
+       this.description = description;
+    }
+
 
     public void setTitle(String title) throws Exception {
         title = title.trim();
-//        String capTitle = title.substring(0, 1).toUpperCase();
-//        String bodyTitle = title.substring(1);
+        String capTitle = title.substring(0, 1).toUpperCase();
+        String bodyTitle = title.substring(1);
         title = title.substring(0,1).toUpperCase() + title.substring(1);
         if(title.isEmpty())
             throw new Exception("Title cannot be blank.");
@@ -56,6 +64,9 @@ public abstract class Item implements Serializable {
         return this.title;
     }
 
+    public String getDescription(){
+        return this.description;
+    }
     @Override
     public String toString(){
         return "Id: " + this.id + ", Title: " + this.title + ", Date: " + this.invDate;

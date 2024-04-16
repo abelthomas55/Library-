@@ -8,8 +8,11 @@ public class Book extends Item implements CheckInOut {
     private BookGenre genre;
     private boolean checkedOut;
 
+
     public Book(String title, String invdate) throws Exception {
-        super(title, invdate);
+        super(title,
+                invdate,
+                description);
     }
     public Book(String title, String invdate, String author, BookGenre bookGenre) throws Exception {
         super(title, invdate);
