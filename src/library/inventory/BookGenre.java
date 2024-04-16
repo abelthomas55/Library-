@@ -1,4 +1,4 @@
-package library.inventory;
+package src.library.inventory;
 
 public enum BookGenre {
         FICTION,

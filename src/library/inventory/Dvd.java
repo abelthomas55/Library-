@@ -1,4 +1,4 @@
-package library.inventory;
+package src.library.inventory;
 
 public class Dvd extends Item implements CheckInOut{
     private String director;
