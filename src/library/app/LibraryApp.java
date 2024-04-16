@@ -216,30 +216,20 @@ public class LibraryApp {
         id = Input.getInt("Please enter the inventory id: ");
         for (Item item : inventory) {
             if (item.getId() == id) {
-                System.out.println("First if");
                 if( item instanceof Book){
                     Book book = (Book) item;
-                    System.out.println("Second if Book");
-                    if(!book.isCheckedOut()){
-                        book.checkOut();
-                        System.out.println("Third if Book");
-                    }
+                    book.checkIn();
+                    Input.getLine("Please enter to continue...");
                 }
                 if( item instanceof Cd){
                     Cd cd = (Cd) item;
-                    System.out.println("Second if CD");
-                    if(!cd.isCheckedOut()){
-                        cd.checkOut();
-                        System.out.println("Third if CD");
-                    }
+                    cd.checkIn();
+                    Input.getLine("Please enter to continue...");
                 }
                 if( item instanceof Dvd){
                     Dvd dvd = (Dvd) item;
-                    System.out.println("Second if DVD");
-                    if(!dvd.isCheckedOut()){
-                        dvd.checkOut();
-                        System.out.println("Third if DVD");
-                    }
+                    dvd.checkIn();
+                    Input.getLine("Please enter to continue...");
                 }
 
                 return;
@@ -257,15 +247,19 @@ public class LibraryApp {
             if (item.getId() == id) {
                 if( item instanceof Book){
                     Book book = (Book) item;
-                    if(book.isCheckedOut()) book.checkIn();
+                    book.checkOut();
+                    Input.getLine("Please enter to continue...");
+
                 }
                 if( item instanceof Cd){
                     Cd cd = (Cd) item;
-                    if(cd.isCheckedOut()) cd.checkIn();
+                    cd.checkOut();
+                    Input.getLine("Please enter to continue...");
                 }
                 if( item instanceof Dvd){
                     Dvd dvd = (Dvd) item;
-                    if(dvd.isCheckedOut()) dvd.checkIn();
+                    dvd.checkOut();
+                    Input.getLine("Please enter to continue...");
                 }
 
                 return;

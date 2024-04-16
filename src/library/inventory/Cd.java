@@ -42,24 +42,26 @@ public class Cd extends Item implements CheckInOut {
 
 
     @Override
-    public boolean isCheckedOut() {
+    public boolean isCheckedOut(){
         return checkedOut;
     }
 
     @Override
-    public void checkOut() throws Exception {
+    public void checkOut(){
         if (this.checkedOut)
-            throw new Exception("Already checked out!");
+            System.out.println("Cannot check out a CD that is already checked out.");
         else
-            this.checkedOut = true;
+            System.out.println("The CD has been checked out.");
+        this.checkedOut = true;
     }
 
     @Override
-    public void checkIn() throws Exception {
+    public void checkIn(){
         if (!this.checkedOut)
-            throw new Exception("Not checked out!");
+            System.out.println("Cannot check in a CD that isn't already checked out.");
         else
-            this.checkedOut = false;
+            System.out.println("The CD has been checked in.");
+        this.checkedOut = false;
     }
 
     @Override

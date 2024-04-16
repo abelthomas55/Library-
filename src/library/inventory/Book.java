@@ -1,5 +1,7 @@
 package src.library.inventory;
 
+import src.library.app.Input;
+
 public class Book extends Item implements CheckInOut {
 
     private String author;
@@ -48,18 +50,20 @@ public class Book extends Item implements CheckInOut {
     }
 
     @Override
-    public void checkOut() throws Exception {
+    public void checkOut(){
         if (this.checkedOut)
-            throw new Exception("Already checked out!");
+            System.out.println("Cannot check out a book that is already checked out.");
         else
+            System.out.println("The Book has been checked out.");
             this.checkedOut = true;
     }
 
     @Override
-    public void checkIn() throws Exception {
+    public void checkIn(){
         if (!this.checkedOut)
-            throw new Exception("Not checked out!");
+            System.out.println("Cannot check in a book that isn't already checked out.");
         else
+            System.out.println("The Book has been checked in.");
             this.checkedOut = false;
     }
 
