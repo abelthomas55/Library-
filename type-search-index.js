@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"inventory","l":"Book"},{"p":"inventory","l":"BookGenre"},{"p":"inventory","l":"Cd"},{"p":"inventory","l":"Dvd"},{"p":"Input","l":"Input"},{"p":"inventory","l":"Item"},{"p":"<Unnamed>","l":"Library"},{"p":"inventory","l":"Moviegenre"},{"p":"inventory","l":"Musicgenre"}]
