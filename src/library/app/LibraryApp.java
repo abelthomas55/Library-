@@ -1,13 +1,13 @@
-package library.app;
+package src.library.app;
 
-import library.inventory.Book;
-import library.inventory.BookGenre;
-import library.inventory.Item;
-import library.inventory.Cd;
-import library.inventory.CdGenre;
-import library.inventory.Dvd;
-import library.inventory.DvdGenre;
-import library.app.Input;
+import src.library.inventory.Book;
+import src.library.inventory.BookGenre;
+import src.library.inventory.Item;
+import src.library.inventory.Cd;
+import src.library.inventory.CdGenre;
+import src.library.inventory.Dvd;
+import src.library.inventory.DvdGenre;
+import src.library.app.Input;
 
 import java.io.*;
 import java.util.ArrayList;
