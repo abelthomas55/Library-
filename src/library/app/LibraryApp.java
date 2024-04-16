@@ -50,7 +50,7 @@ public class LibraryApp {
      */
     private void displayAppHeading() {
         System.out.println(DOUBLE_LINE);
-        System.out.println("Welcome to the library.app.Library App");
+        System.out.println("Welcome to the Library App");
         System.out.println(DOUBLE_LINE);
     } // end of displayAppHeading method
 
@@ -98,7 +98,7 @@ public class LibraryApp {
             userInput = Input.getIntRange("Genre 1=Fiction, 2= Non-Fiction, 3=Mystery, 4= Romance, 5= Science Fiction: ", 1, 5);
                     genre = BookGenre.values()[userInput - 1];
         } catch (Exception e) {
-            throw new Exception("Invalid data! library.inventory.Book Genre = " + genre);
+            throw new Exception("Invalid data! Book Genre = " + genre);
         }
         book = new Book(title, dateReceived, author, genre);
         return book;
@@ -183,7 +183,7 @@ public class LibraryApp {
         System.out.println("Please enter the following inventory information:");
         title = Input.getString("Title: ");
         dateReceived = Input.getDate("Date Received (MM-DD-YYYY): ");
-        inventoryType = Input.getIntRange("Type 1=library.inventory.Book, 2=CD, 3=DVD: ", 1, 3);
+        inventoryType = Input.getIntRange("Type 1=Book, 2=CD, 3=DVD: ", 1, 3);
         switch (inventoryType) {
             case 1:
                 Book book = addBook(title, dateReceived);
@@ -204,7 +204,7 @@ public class LibraryApp {
                 Input.getLine("Press enter to continue...");
                 break;
             default:
-                throw new Exception("Invalid library.app.Input! Inventory Type = " +
+                throw new Exception("Invalid Input! Inventory Type = " +
                         inventoryType);
         } // end of switch
     } // end of addItem method
@@ -219,10 +219,10 @@ public class LibraryApp {
                 System.out.println("First if");
                 if( item instanceof Book){
                     Book book = (Book) item;
-                    System.out.println("Second if library.inventory.Book");
+                    System.out.println("Second if Book");
                     if(!book.isCheckedOut()){
                         book.checkOut();
-                        System.out.println("Third if library.inventory.Book");
+                        System.out.println("Third if Book");
                     }
                 }
                 if( item instanceof Cd){
@@ -257,15 +257,15 @@ public class LibraryApp {
             if (item.getId() == id) {
                 if( item instanceof Book){
                     Book book = (Book) item;
-                    if(!book.isCheckedOut()) book.checkIn();
+                    if(book.isCheckedOut()) book.checkIn();
                 }
                 if( item instanceof Cd){
                     Cd cd = (Cd) item;
-                    if(!cd.isCheckedOut()) cd.checkIn();
+                    if(cd.isCheckedOut()) cd.checkIn();
                 }
                 if( item instanceof Dvd){
                     Dvd dvd = (Dvd) item;
-                    if(!dvd.isCheckedOut()) dvd.checkIn();
+                    if(dvd.isCheckedOut()) dvd.checkIn();
                 }
 
                 return;
@@ -277,9 +277,9 @@ public class LibraryApp {
      * Display the library.app.Library's inventory's detail group by inventory type.
      */
     private void displayInventory() {
-        System.out.println("library.inventory.Book Inventory");
+        System.out.println("Book Inventory");
         System.out.println(SINGLE_LINE);
-        System.out.println("ID       Title      Date Rec'd      Author          Genre");
+        System.out.println("ID  Title           Date Rec'd Author          Genre");
         System.out.println("--- --------------- ---------- --------------- ---------------");
         for (Item item : inventory) {
             if (item instanceof Book) {
@@ -289,7 +289,7 @@ public class LibraryApp {
         System.out.println();
         System.out.println("CD Inventory");
         System.out.println(SINGLE_LINE);
-        System.out.println("ID       Title      Date Rec'd      Artist          Genre");
+        System.out.println("ID  Title           Date Rec'd Artist          Genre");
         System.out.println("--- --------------- ---------- --------------- ---------------");
         for (Item item : inventory) {
             if (item instanceof Cd) {
@@ -299,7 +299,7 @@ public class LibraryApp {
         System.out.println();
         System.out.println("DVD Inventory");
         System.out.println(SINGLE_LINE);
-        System.out.println("ID       Title      Date Rec'd      Director        Genre");
+        System.out.println("ID  Title           Date Rec'd Director        Genre");
         System.out.println("--- --------------- ---------- --------------- ---------------");
         for (Item item : inventory) {
             if (item instanceof Dvd) {
@@ -307,7 +307,6 @@ public class LibraryApp {
             }
         }
         System.out.println();
-//TO-DO: ADD LOGIC FOR DISPLAYING OTHER INVENTORY TYPES
         Input.getLine("Press enter to continue...");
     } // end of displayInventory
 
@@ -323,7 +322,7 @@ public class LibraryApp {
         int userInput = 0;
         while (keepRunning) {
             System.out.println(SINGLE_LINE);
-            System.out.println("library.inventory.Main Menu");
+            System.out.println("Main Menu");
             System.out.println(SINGLE_LINE);
             System.out.println("0 = End Application");
             System.out.println("1 = Add Item");
