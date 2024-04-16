@@ -64,7 +64,7 @@ public class Dvd extends Item implements CheckInOut{
     }
     @Override
     public boolean isCheckedOut(){
-        return checkOut();
+        return isCheckedOut();
     }
 
 

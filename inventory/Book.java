@@ -40,9 +40,9 @@ public class Book extends Item implements CheckInOut {
         return bookGenre;
     }
 
-    public boolean setCheckedOut(boolean b){
-         this.checkOut();
-        return false;
+   public boolean setCheckedOut(boolean b){
+        this.checkOut();
+       return false;
     }
 
 
@@ -52,7 +52,7 @@ public class Book extends Item implements CheckInOut {
             System.out.println("This book is available to be Checked Out");
         }
         else {
-            setCheckedOut(false);
+            isCheckedOut();
         }
 
         }
@@ -65,13 +65,14 @@ public class Book extends Item implements CheckInOut {
             System.out.println("This book has been checked out.");
         }
         else {
-            setCheckedOut(true);
+            isCheckedOut();
         }
         return false;
     }
     @Override
     public boolean isCheckedOut(){
-        return checkOut();
+        boolean bookCheckout = true;
+        return bookCheckout;
     }
 
     @Override

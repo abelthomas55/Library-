@@ -59,13 +59,13 @@ public class Cd extends Item implements CheckInOut{
             System.out.println("This CD has been checked out.");
         }
         else {
-            setCheckedOut(true);
+            setCheckedOut();
         }
         return false;
     }
     @Override
     public boolean isCheckedOut(){
-        return checkOut();
+        return isCheckedOut();
     }
 
 
