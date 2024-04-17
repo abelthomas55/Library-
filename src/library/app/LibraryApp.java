@@ -94,8 +94,6 @@ public class LibraryApp {
 
         author = Input.getString("Author: ");
 
-        description = Input.getDescription("Description: ");
-
         try {
             userInput = Input.getIntRange("Genre 1=Fiction, 2= Non-Fiction, 3=Mystery, 4= Romance, 5= Science Fiction: ", 1, 5);
                     genre = BookGenre.values()[userInput - 1];
