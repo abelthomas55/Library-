@@ -8,13 +8,13 @@ public class Cd extends Item implements CheckInOut {
 
     private CdGenre genre;
 
-    public Cd(String title, String invdate) throws Exception {
-        super(title, invdate);
+    public Cd(String title, String invdate, String description) throws Exception {
+        super(title, invdate, description);
         this.checkedOut = false;
     }
 
-    public Cd(String title, String invdate, String artist, CdGenre musicGenre) throws Exception {
-        super(title, invdate);
+    public Cd(String title, String invdate, String description, String artist, CdGenre musicGenre) throws Exception {
+        super(title, invdate, description);
         setArtist(artist);
         setMusicGenre(musicGenre);
         this.checkedOut = false;

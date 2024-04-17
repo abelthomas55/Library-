@@ -9,20 +9,18 @@ public class Book extends Item implements CheckInOut {
     private boolean checkedOut;
 
 
-    public Book(String title, String invdate) throws Exception {
-        super(title,
-                invdate,
-                description);
+    public Book(String title, String invdate, String description) throws Exception {
+        super(title, invdate, description);
     }
-    public Book(String title, String invdate, String author, BookGenre bookGenre) throws Exception {
-        super(title, invdate);
+    public Book(String title, String invdate, String description, String author, BookGenre bookGenre) throws Exception {
+        super(title, invdate, description);
         setAuthor(author);
         setBookGenre(bookGenre);
         this.checkedOut = false;
     }
 
-    public Book(int id,String title, String invdate, String author, BookGenre bookGenre) throws Exception {
-        super(title, invdate);
+    public Book(int id,String title, String invdate, String description, String author, BookGenre bookGenre) throws Exception {
+        super(title, invdate, description);
         setAuthor(author);
         setBookGenre(bookGenre);
         this.checkedOut = false;

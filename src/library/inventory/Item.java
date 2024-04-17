@@ -51,8 +51,6 @@ public abstract class Item implements Serializable {
 
     public void setTitle(String title) throws Exception {
         title = title.trim();
-        String capTitle = title.substring(0, 1).toUpperCase();
-        String bodyTitle = title.substring(1);
         title = title.substring(0,1).toUpperCase() + title.substring(1);
         if(title.isEmpty())
             throw new Exception("Title cannot be blank.");

@@ -60,6 +60,35 @@ public class Input {
     } // end of getLine
 
     /**
+     * Display a prompt and return the entire user input line, not allowing for an empty string
+     *
+     * @param prompt input prompt asking the user to enter something specific
+     * @return the user's input line
+     */
+    public static String getDescription(String prompt) {
+
+        String userInput = null;
+
+        System.out.print(prompt);
+
+        while (true) {
+            userInput = Input.sc.nextLine();
+
+            userInput = userInput.trim();
+
+            if (userInput.isEmpty()){
+                System.out.println("No description was set");
+                break;
+            } else {
+                break;
+            }
+        }
+
+        return userInput;
+
+    } // end of getLine
+
+    /**
      * Display a prompt and validate that the user entered a valid integer
      * and then return the valid value
      * 
