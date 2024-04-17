@@ -20,7 +20,7 @@ public class Book extends Item implements CheckInOut {
     }
 
     public Book(int id,String title, String invdate, String description, String author, BookGenre bookGenre) throws Exception {
-        super(title, invdate, description);
+        super(id, title, invdate, description);
         setAuthor(author);
         setBookGenre(bookGenre);
         this.checkedOut = false;

@@ -20,6 +20,13 @@ public class Cd extends Item implements CheckInOut {
         this.checkedOut = false;
     }
 
+    public Cd(int id, String title, String invdate, String description, String artist, CdGenre musicGenre) throws Exception {
+        super(id, title, invdate, description);
+        setArtist(artist);
+        setMusicGenre(musicGenre);
+        this.checkedOut = false;
+    }
+
     public void setArtist(String artist) throws Exception {
         artist = artist.trim();
         artist = artist.substring(0, 1).toUpperCase() + artist.substring(1);

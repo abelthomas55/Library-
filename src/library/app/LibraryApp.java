@@ -389,8 +389,11 @@ public class LibraryApp {
         }
         System.out.println("library.app.Library has been saved.");
     }
-    private void readInventoryData(){
+    private void readInventoryData() throws Exception {
         System.out.println("Please wait while we grab the library information.");
+
+        inventory.clear();
+
         try{
             FileInputStream readData = new FileInputStream("libraryData.ser");
             ObjectInputStream readStream = new ObjectInputStream(readData);
@@ -413,7 +416,7 @@ public class LibraryApp {
      * @throws Exception Any type of exceptions thrown back to main will be
      *                   displayed and end the program.
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         LibraryApp app = new LibraryApp();
         app.displayAppHeading();
         try {

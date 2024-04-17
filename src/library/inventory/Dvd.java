@@ -16,6 +16,12 @@ public class Dvd extends Item implements CheckInOut{
         setMovieGenre(movieGenre);
         this.checkedOut = false;
     }
+    public Dvd(int id, String title, String invdate, String description, String director, DvdGenre movieGenre) throws Exception {
+        super(id, title,invdate, description);
+        setDirector(director);
+        setMovieGenre(movieGenre);
+        this.checkedOut = false;
+    }
 
     public void setDirector(String director) throws Exception{
         director = director.trim();

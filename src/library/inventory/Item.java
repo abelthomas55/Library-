@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Item implements Serializable {
-    private static Integer counter = 1;
+    private static Integer counter = 0;
 
     protected Integer id;
 
@@ -18,7 +18,13 @@ public abstract class Item implements Serializable {
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
     public Item(String title, String invDate , String description) throws Exception {
-        this.id = Item.counter++;
+        this.id = ++Item.counter;
+        setTitle(title);
+        setInvDate(String.valueOf(invDate));
+        setDescription(description);
+    }
+    public Item(int id, String title, String invDate , String description) throws Exception {
+        this.id = id;
         setTitle(title);
         setInvDate(String.valueOf(invDate));
         setDescription(description);
