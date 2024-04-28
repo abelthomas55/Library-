@@ -4,9 +4,9 @@ package src.library.inventory;
  * It extends the Item class and implements the CheckInOut interface.
  */
 public class Dvd extends Item implements CheckInOut{
-    private String director;
-    private DvdGenre genre;
-    private boolean checkedOut;
+    private String director; // The Director of the Dvd
+    private DvdGenre genre; // The genre of the Dvd
+    private boolean checkedOut; // To check whether the Dvd is checked out or not
 
     /**
      * Constructs a Dvd object with the given title, inventory date, and description.

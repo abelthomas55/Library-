@@ -6,11 +6,10 @@ package src.library.inventory;
  */
 public class Cd extends Item implements CheckInOut {
 
-    private String artist;
-    private boolean checkedOut;
+    private String artist; // The Artist of the Cd
+    private boolean checkedOut; // To check whether the Cd is checkout out or not
+    private CdGenre genre; // The genre of the Cd
 
-
-    private CdGenre genre;
     /**
      * Constructs a Cd object with the given title, inventory date, and description.
      * @param title The title of the CD.

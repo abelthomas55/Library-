@@ -9,16 +9,31 @@ import java.time.format.DateTimeFormatter;
  * It implements the Serializable interface for serialization purposes.
  */
 public abstract class Item implements Serializable {
+    /**
+     * The counter for generating unique IDs.
+     */
     private static Integer counter = 0;
-
+    /**
+     * The unique ID of the item.
+     */
     protected Integer id;
-
+    /**
+     * The title of the item.
+     */
     protected String title;
 
+    /**
+     * The inventory date of the item.
+     */
     protected LocalDate invDate;
 
+    /**
+     * The description of the item.
+     */
     protected String description;
-
+    /**
+     * The formatter for parsing and formatting dates.
+     */
     private static final DateTimeFormatter formatter = DateTimeFormatter. ofPattern("MM-dd-yyyy");
 
     /**

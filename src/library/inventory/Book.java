@@ -7,9 +7,9 @@ import src.library.app.Input;
  */
 public class Book extends Item implements CheckInOut {
 
-    private String author;
-    private BookGenre genre;
-    private boolean checkedOut;
+    private String author; // The Author of the book
+    private BookGenre genre; // The genre of the book
+    private boolean checkedOut;// To check whether the book is checked out of not
 
     /**
      * Constructs a Book object with the given title, inventory date, and description.
